@@ -26,7 +26,7 @@ class PatientController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): JsonResponse
     {
         return new JsonResponse([
             'genders' => GenderEnum::labels(),
@@ -36,9 +36,12 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePatientRequest $request)
+    public function store(StorePatientRequest $request): JsonResponse
     {
-        //
+        Patient::create($request->validated());
+        return new JsonResponse([
+            'status' => 'success',
+        ]);
     }
 
     /**
