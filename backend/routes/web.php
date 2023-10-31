@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PatientController;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/api/token', function () {
+    return new JsonResponse(['csrf_token' => csrf_token()]); 
+});
 
 Route::resource('/api/patients', PatientController::class);
 
