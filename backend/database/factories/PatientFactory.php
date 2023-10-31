@@ -20,11 +20,11 @@ class PatientFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->name(),
-            'cpf' => (fake()->cpf(false))*1000000,
+            'cpf' => fake()->cpf(false),
             'rg' => (fake()->numberBetween(11111,99999))*1000000000000,
             'birth_date' => fake()->date(),
             'gender' => fake()->randomElement(array_column(GenderEnum::cases(),'value')),
-            'phone' => (fake()->numberBetween(11111,99999))*1000000,
+            'phone' => fake()->phoneNumber(),
             'description' => fake()->realText(),
         ];
     }
