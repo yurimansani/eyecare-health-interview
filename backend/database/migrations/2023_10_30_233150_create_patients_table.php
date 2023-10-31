@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Patient\GenderEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +19,7 @@ return new class extends Migration
             $table->string('cpf',11);
             $table->string('rg',20);
             $table->date('birth_date');
-            $table->enum('gender', ['male', 'female']);
+            $table->enum('gender', array_column(GenderEnum::cases(),'value'));
             $table->string('phone',12);
             $table->text('description');
             $table->timestamps();
