@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('rg',20);
             $table->date('birth_date');
             $table->enum('gender', array_column(GenderEnum::cases(),'value'));
-            $table->string('phone',12);
+            $table->string('phone',14);
             $table->text('description');
             $table->timestamps();
             $table->softDeletes();
