@@ -57,7 +57,10 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        //
+        return new JsonResponse([
+            'patient' => $patient,
+            'genders' => GenderEnum::labels(),
+        ]);
     }
 
     /**
