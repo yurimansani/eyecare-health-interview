@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('name');
             $table->string('email');
-            $table->string('cpf',11);
+            $table->string('cpf',11)->unique();
             $table->string('rg',20);
             $table->date('birth_date');
             $table->enum('gender', array_column(GenderEnum::cases(),'value'));

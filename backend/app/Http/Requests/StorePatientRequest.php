@@ -14,7 +14,7 @@ class StorePatientRequest extends FormRequest
         return [
             'name' => 'string|required|max:250',
             'email' => 'email|required|max:250',
-            'cpf' => 'cpf||numeric|required',
+            'cpf' => 'cpf||numeric|required|unique:App\Models\Patient,cpf',
             'rg' => 'numeric|max_digits:20',
             'phone' => 'celular_com_ddd|required',
             'gender' => [new Enum(GenderEnum::class)],
