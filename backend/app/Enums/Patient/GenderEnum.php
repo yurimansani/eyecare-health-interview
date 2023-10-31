@@ -22,7 +22,7 @@ enum GenderEnum: string
     }
 
     /**
-     * @param  GenderEnum    $gender
+     * @param  GenderEnum $gender
      * @return string
      */
     public static function getLabel(self $gender): string
