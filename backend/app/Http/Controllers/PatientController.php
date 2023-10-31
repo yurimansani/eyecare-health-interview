@@ -68,7 +68,10 @@ class PatientController extends Controller
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        //
+        Patient::update($request->validated());
+        return new JsonResponse([
+            'status' => 'success',
+        ]);
     }
 
     /**
