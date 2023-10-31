@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Patient\GenderEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,14 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'email' => fake()->name(),
+            'cpf' => (fake()->numberBetween(11111,99999))*1000000,
+            'rg' => (fake()->numberBetween(11111,99999))*1000000000000,
+            'birth_date' => fake()->date(),
+            'gender' => fake()->randomElement(array_column(GenderEnum::cases(),'value')),
+            'phone' => (fake()->numberBetween(11111,99999))*1000000,
+            'description' => fake()->realText(),
         ];
     }
 }
