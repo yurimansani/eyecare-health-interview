@@ -49,7 +49,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        return new JsonResponse($patient);
     }
 
     /**
