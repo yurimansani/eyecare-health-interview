@@ -28,7 +28,9 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return new JsonResponse([
+            'genders' => GenderEnum::labels(),
+        ]);
     }
 
     /**
