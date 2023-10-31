@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Patient\GenderEnum;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Models\Patient;
+use Illuminate\Http\JsonResponse;
 
 class PatientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the Patients.
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        return new JsonResponse(
+            Patient::paginate(request('per_page', 10))
+                ->appends([
+                    'per_page' => request('per_page', 10),
+                ])
+        );
     }
 
     /**
