@@ -23,6 +23,7 @@ class Patient extends Model
         'cpf',
         'rg',
         'gender',
+        'phone',
     ];
 
     protected $appends = ['gender_label'];
